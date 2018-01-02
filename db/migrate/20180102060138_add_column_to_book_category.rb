@@ -1,5 +1,5 @@
 class AddColumnToBookCategory < ActiveRecord::Migration[5.1]
   def change
-    add_column :book_categories, :notes, :string
+    add_column :book_categories, :comments, :string
   end
 end

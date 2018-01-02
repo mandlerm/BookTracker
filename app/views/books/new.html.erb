@@ -1,8 +1,38 @@
 Add a New Book
+<h1>Add a book</h1>
 
-Title
-Author
-Check if read  (box)
-Category (dynamic form box) --> Category model
-    (or preset categories with simple dropdown)
-Rating 0-5  -->book_category
+<%= form_for @book, :url => books_path, :html => {:method => :post} do |f|  %>
+  <%= f.label :title  %><br />
+  <%= f.text_field :title %><br />
+
+  <%= f.label :author %><br />
+  <%= f.text_field :author %><br />
+
+  <%= f.fields_for :book_category do |book_category| %>
+    <%= book_category.label :rating, "Rating (1-5)" %><br />
+    <%= book_category.text_field :rating %><br />
+
+    <%= book_category.label :comments %><br />
+    <%= book_category.text_field :comments %><br />
+  <% end %>
+
+  <%= f.fields_for :category do |category| %>
+    <%= category.label :category %><br />
+    <%= category.text_field :category %>
+  <% end %><br />
+
+  <%= f.submit%>
+<% end %>
+
+
+book {
+  title => title,
+  author => author,
+  book_category => {
+    rating => rating,
+    comments => comments
+  },
+  category=>{
+    category =>category
+  }
+}

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180102060138) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "notes"
+    t.string "comments"
   end
 
   create_table "books", force: :cascade do |t|

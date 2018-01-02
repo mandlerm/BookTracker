@@ -9,6 +9,6 @@
       <% end %>
     <% else %>
       <h2>You do not have any books yet</h2>
-      <%= button_to "Add Book", new_book_path, class:"btn btn-primary center" %>
+      <%= button_to "Add Book", new_book_path, method: :get, class:"btn btn-primary center" %>
     <% end %>
 </div>

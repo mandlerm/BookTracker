@@ -1,7 +1,8 @@
 class Book < ApplicationRecord
-  has_many :users
-  has_many :book_categories
-  has_many :categories, through: :book_categories
+  has_many :user_books
+  has_many :users, :through => :user_books
+  belongs_to :category
+
   # accepts_nested_attributes_for :categories
 
   def categories_attributes=(category_attributes)

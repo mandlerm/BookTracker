@@ -5,15 +5,18 @@ class BooksController < ApplicationController
   end
 
   def create
-    binding.pry
-    @book = Book.new()
+    @book = Book.new(books_params)
+  end
+
+  def edit
   end
 
 
   private
     def books_params
-      params.require(:book).permit(:title, :author, :read, :book_categories =>
-                      [:rating, :comments], :categories_attributes => [:name])
+      params.require(:book).permit(:title, :author, :read, :categories_attributes => [:name])
     end
+
+    
 
 end

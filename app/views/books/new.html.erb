@@ -8,20 +8,13 @@ Add a New Book
   <%= f.label :author %><br />
   <%= f.text_field :author %><br />
 
-  <%= f.fields_for :book_categories, @book.book_categories.build do |book_category| %>
-    <%= book_category.label :rating, "Rating (1-5)" %><br />
-    <%= book_category.text_field :rating %><br />
-
-    <%= book_category.label :comments %><br />
-    <%= book_category.text_field :comments %><br />
-  <% end %>
-
-
-<!-- after get working, allow 3 category options with dynamic/dropdown. -->
+  <!-- after get working, allow 3 category options with dynamic/dropdown. -->
   <%= f.fields_for :categories, @book.categories.build do |category_fields| %>
     <%= category_fields.label :category %><br />
     <%= category_fields.text_field :name %>
   <% end %><br />
+
+  
 
   <%= f.label :read, "Check if read" %>
   <%= f.check_box :read, include_hidden: false %><br />

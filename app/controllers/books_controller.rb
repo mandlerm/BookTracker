@@ -5,27 +5,15 @@ class BooksController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    binding.pry
+    @book = Book.new()
   end
 
 
   private
     def books_params
-      # params.require(:book).permit(:title, :author, :book_category =>
-      #                 {:rating, :comments}, :category => {:category})
+      params.require(:book).permit(:title, :author, :read, :book_categories =>
+                      [:rating, :comments], :categories_attributes => [:name])
     end
 
 end
-
-#
-# "book"=>{
-#   "title"=>"Story of the World",
-#   "author"=>"Susan Bauer",
-#   "book_category"=>{
-#     "rating"=>"5",
-#     "comments"=>"great history book"
-#   },
-#   "category"=>{
-#     "category"=>"History"
-#   }
-# },

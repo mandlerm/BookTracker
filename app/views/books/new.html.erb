@@ -1,25 +1,25 @@
-Add a New Book
+
 <h1>Add a book</h1>
 
-<%= form_for @category, :url => categories_path, :html => {:method => :post} do |f|%>
+<%= form_for @book, :url => books_path, :html => {:method => :post} do |f|%>
 
-  <%= f.label :name, value: "Enter or select a category" %><br />
-  <%= f.text_field :name, list: "category_autocomplete" %>
-  <datalist id="category_autocomplete">
-    <% Category.all.distinct.each do |category| %>
-      <option value="<%= category.name %>">
-      <% end %>
-  </datalist><br />
+  <%= f.fields_for :category do |category| %>
+    <%= category.label :name, value: "Enter or select a category" %><br />
+    <%= category.text_field :name, list: "category_autocomplete" %>
+    <datalist id="category_autocomplete">
+      <% Category.all.distinct.each do |category| %>
+        <option value="<%= category.name %>">
+        <% end %>
+    </datalist><br />
+  <% end %>
 
-    <%= f.fields_for :books, @category.books.build do |book| %>
-      <%= book.label :title  %><br />
-      <%= book.text_field :title %><br />
+  <%= f.label :title  %><br />
+  <%= f.text_field :title %><br />
 
-      <%= book.label :author %><br />
-      <%= book.text_field :author %><br />
-    <% end %>
+  <%= f.label :author %><br />
+  <%= f.text_field :author %><br />
 
-    <%= f.fields_for :user_books do |record| %>
+  <%= f.fields_for :user_books do |record| %>
     <%= record.label :rating  %><br />
     <%= record.text_field :rating %><br />
 
@@ -30,22 +30,7 @@ Add a New Book
     <%= record.label(:read, "Still on the list") %>
     <%= record.radio_button(:read, "1") %>
     <%= record.label(:read, "Check it off my list!") %>
-
-    <%#= f.label :read %><br />
-    <%#= f.text_field :read %><br />
-
-  <% end %>
-  <!-- after get working, allow 3 category options with dynamic/dropdown. -->
-  <%#= f.fields_for :categories, @book.categories.build do |category_fields| %>
-    <%#= category_fields.label :category %><br />
-    <%#= category_fields.text_field :name %>
-  <%# end %><br />
-
-
-
-  <%#= f.label :read, "Check if read" %>
-  <%#= f.check_box :read, include_hidden: false %><br />
-
+  <% end %><br />
   <%= f.submit%>
 <% end %>
 

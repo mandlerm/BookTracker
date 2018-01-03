@@ -6,9 +6,9 @@ class Book < ApplicationRecord
   # accepts_nested_attributes_for :categories
 
   def category_attributes=(category_attribute)
-      category = Category.find_or_create_by(category_attribute.titilize)
-      self.categories << category if item.persisted?
-    end
+  binding.pry
+      category = Category.find_or_create_by(category_attribute)
+      self.category = category if category.persisted?
   end
 
   def category=(category)

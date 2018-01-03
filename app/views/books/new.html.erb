@@ -1,7 +1,7 @@
 
 <h1>Add a book</h1>
 
-<%= form_for @book, :url => books_path, :html => {:method => :post} do |f|%>
+<%= form_for @book do |f|%>
 
   <%= f.fields_for :category, @book.build_category do |category| %>
     <%= category.label :name, value: "Enter or select a category" %><br />

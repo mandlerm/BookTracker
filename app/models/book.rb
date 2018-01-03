@@ -16,7 +16,6 @@ class Book < ApplicationRecord
 
   end
 
-private
   def read?
     self.user_book.read?
   end

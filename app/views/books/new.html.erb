@@ -19,7 +19,7 @@
   <%= f.label :author %><br />
   <%= f.text_field :author %><br />
 
-  <%= f.fields_for :user_books do |record| %>
+  <%= f.fields_for :user_books, @book.user_books.build do |record| %>
     <%= record.label :rating  %><br />
     <%= record.text_field :rating %><br />
 

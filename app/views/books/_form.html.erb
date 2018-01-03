@@ -1,6 +1,4 @@
 
-<h1>Add a book</h1>
-
 <%= form_for book do |f|%>
 
   <%= f.fields_for :category, book.build_category do |category| %>
@@ -19,17 +17,17 @@
   <%= f.label :author %><br />
   <%= f.text_field :author %><br />
 
-  <%= f.fields_for :user_book, book.build_user_book do |record| %>
-    <%= record.label :rating  %><br />
-    <%= record.text_field :rating %><br />
+  <%#= f.fields_for :user_book, book.build_user_book do |record| %>
+    <%#= record.label :rating  %><br />
+    <%#= record.text_field :rating %><br />
 
-    <%= record.label :comments %><br />
-    <%= record.text_field :comments %><br />
+    <%#= record.label :comments %><br />
+    <%#= record.text_field :comments %><br />
 
-    <%= record.radio_button(:read, "0") %>
-    <%= record.label(:read, "Need to read") %>
-    <%= record.radio_button(:read, "1") %>
-    <%= record.label(:read, "Check it off my list!") %>
-  <% end %><br />
+    <%#= record.radio_button(:read, "0") %>
+    <%#= record.label(:read, "Need to read") %>
+    <%#= record.radio_button(:read, "1") %>
+    <%#= record.label(:read, "Check it off my list!") %>
+  <%# end %><br />
   <%= f.submit "Register Book", class: "btn btn-large btn-primary"%>
 <% end %>

@@ -22,13 +22,15 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @book = Book.find_by(:id => params[:id])
   end
 
   def update
 
-  end 
+  end
 
   def destroy
+
   end
 
   private

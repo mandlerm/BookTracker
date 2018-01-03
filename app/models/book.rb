@@ -14,6 +14,7 @@ class Book < ApplicationRecord
   end
 
   def category=(category)
+    
   end
 
 

@@ -2,10 +2,12 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @category = Category.new
   end
 
   def create
     @book = Book.new(books_params)
+
   end
 
   def edit

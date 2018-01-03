@@ -5,7 +5,7 @@
 
     <% if !@books.empty? %>
       <% @books.each do |book| %>
-        <%= link_to book.title, book_path(book.id) %> | <%= book.author %> | <%= link_to book.category.name, category_path(book.category.id) %>
+        <%= link_to book.title, book_path(book.id) %> | <%= book.author %> | <%= link_to book.category.name, category_path(book.category.id) %><br />
       <% end %><br />
     <% else %>
       <h2>You do not have any books yet</h2>

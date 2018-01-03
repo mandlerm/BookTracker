@@ -2,12 +2,19 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @category = Category.new
+    # @category = Category.new
   end
 
   def create
     @book = Book.new(books_params)
-binding.pry
+    if @book.save
+      @user_book = UserBook.new(:user_id => current_user.id, :book_id => @book.id, :rating => books_params[:rating], :comments => books_params[:comments], :read => books_params[:read])
+      if @user_book.save
+        redirect_to book_path @book
+      end
+    else
+      redirect_to 'new_book_path'
+    end
   end
 
   def edit

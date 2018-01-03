@@ -11,6 +11,6 @@ class Book < ApplicationRecord
   end
 
   def user_books=(user_book_params)
-      UserBooks.new
+      
   end
 end

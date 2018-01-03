@@ -6,6 +6,7 @@ class BooksController < ApplicationController
   end
 
   def create
+    binding.pry
     @book = Book.new(books_params)
 
   end
@@ -16,9 +17,6 @@ class BooksController < ApplicationController
 
   private
     def books_params
-      params.require(:book).permit(:title, :author, :read, :categories_attributes => [:name])
+      params.require(:book).permit(:title, :author, :category_attributes => [:name], :user_books =>[:rating, :comments, :read])
     end
-
-
-
 end

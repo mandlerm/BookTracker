@@ -5,16 +5,14 @@ class Book < ApplicationRecord
 
   # accepts_nested_attributes_for :categories
 
-  def category_attributes=(category_attributes)
-    binding.pry
-    category_attributes.values.each do |category_attributes|
-      category = Category.find_or_create_by(category_attributes.titilize)
+  def category_attributes=(category_attribute)
+      category = Category.find_or_create_by(category_attribute.titilize)
       self.categories << category if item.persisted?
     end
   end
 
   def category=(category)
-    
+
   end
 
 

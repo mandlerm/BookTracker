@@ -17,6 +17,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def show
+     @book = Book.find_by(:id => params[:id])
+  end
+
   def edit
   end
 

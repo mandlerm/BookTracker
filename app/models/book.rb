@@ -1,7 +1,11 @@
 class Book < ApplicationRecord
-  has_many :user_books
-  has_many :users, :through => :user_books
+  has_one :user_book
+  has_many :users, :through => :user_book
   belongs_to :category
+
+  validates :title, presence: true
+  validates :category, presence: true
+
 
   # accepts_nested_attributes_for :categories
 
@@ -11,6 +15,9 @@ class Book < ApplicationRecord
   end
 
   def user_books=(user_book_params)
-      
+  end
+
+  def read?
+    self.user_book.read?
   end
 end

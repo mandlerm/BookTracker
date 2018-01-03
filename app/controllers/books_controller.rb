@@ -1,8 +1,11 @@
 class BooksController < ApplicationController
 
+  def index
+    @books = Books.all
+  end
+
   def new
     @book = Book.new
-    # @category = Category.new
   end
 
   def create
@@ -30,6 +33,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
+
 
   end
 

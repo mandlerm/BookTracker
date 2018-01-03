@@ -1,3 +1,5 @@
 <h1>Edit <%= @book.title %></h1>
 
 <%= render 'books/form' , book: @book  %>
+<br />
+<%= link_to "Delete Record", book_path(@book), method: :delete, class:"link-right" %>

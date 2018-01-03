@@ -9,17 +9,17 @@ Add a New Book
     <% Category.all.distinct.each do |category| %>
       <option value="<%= category.name %>">
       <% end %>
-  </datalist>
+  </datalist><br />
 
-  <%= f.fields_for :book do |book| %>
-    <%= book.label :title  %><br />
-    <%= book.text_field :title %><br />
+    <%= f.fields_for :books, @category.books.build do |book| %>
+      <%= book.label :title  %><br />
+      <%= book.text_field :title %><br />
 
-    <%= book.label :author %><br />
-    <%= book.text_field :author %><br />
-  <% end %>
+      <%= book.label :author %><br />
+      <%= book.text_field :author %><br />
+    <% end %>
 
-  <%= f.fields_for :user_books do |record| %>
+    <%= f.fields_for :user_books do |record| %>
     <%= record.label :rating  %><br />
     <%= record.text_field :rating %><br />
 
@@ -31,8 +31,8 @@ Add a New Book
     <%= record.radio_button(:read, "1") %>
     <%= record.label(:read, "Check it off my list!") %>
 
-    <%= f.label :read %><br />
-    <%= f.text_field :read %><br />
+    <%#= f.label :read %><br />
+    <%#= f.text_field :read %><br />
 
   <% end %>
   <!-- after get working, allow 3 category options with dynamic/dropdown. -->

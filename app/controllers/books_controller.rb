@@ -6,9 +6,8 @@ class BooksController < ApplicationController
   end
 
   def create
-    binding.pry
     @book = Book.new(books_params)
-
+binding.pry
   end
 
   def edit

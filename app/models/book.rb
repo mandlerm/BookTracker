@@ -6,14 +6,11 @@ class Book < ApplicationRecord
   # accepts_nested_attributes_for :categories
 
   def category_attributes=(category_attribute)
-  binding.pry
       category = Category.find_or_create_by(category_attribute)
       self.category = category if category.persisted?
   end
 
-  def category=(category)
-
+  def user_books=(user_book_params)
+      UserBooks.new
   end
-
-
 end

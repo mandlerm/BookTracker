@@ -12,11 +12,12 @@ class Book < ApplicationRecord
       self.category = category if category.persisted?
   end
 
-  def user_books=(user_book_params)
+  def user_books_attributes=(user_book_params)
 
   end
 
   def read?
+    binding.pry
     self.user_book.read?
   end
 end

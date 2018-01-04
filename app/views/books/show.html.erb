@@ -3,14 +3,6 @@
     <%= link_to "Edit Record", edit_book_path(@book),  class:"link-left"%>
 
     <%= link_to "Delete Record", book_path(@book), method: :delete, class:"link-right" %>
-<% if @book.read? %>
-  <p>
-    You have marked this book as read.
-  </p>
-<% else %>
-  <p>
-    Book is still on your 'to-read' list.  What are you waiting for?
-  </p>
-<% end %>
+
 
   <%= button_to "Add Book", new_book_path, method: :get, class:"btn btn-primary center" %>

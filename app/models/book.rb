@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   has_many :book_records
-  belongs_to :users, :through => :book_records
+  has_one :users, :through => :book_records
   belongs_to :category
 
   validates :title, presence: true
@@ -16,8 +16,5 @@ class Book < ApplicationRecord
 
   end
 
-  def read?
-    binding.pry
-    self.user_book.read?
-  end
+
 end

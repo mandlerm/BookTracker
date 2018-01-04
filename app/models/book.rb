@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
-  has_one :user_book
-  has_many :users, :through => :user_book
+  has_many :book_records
+  belongs_to :users, :through => :book_records
   belongs_to :category
 
   validates :title, presence: true

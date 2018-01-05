@@ -1,4 +1,3 @@
-
 <%= form_for book do |f|%>
 
   <%= f.fields_for :category do |category| %>
@@ -20,15 +19,5 @@
   <%= f.label :rating %><br />
   <%= f.text_field :rating, placeholder:'number between 1-5' %><br />
 
-  <%= f.fields_for :book_records do |record| %>
-    <%= record.label :date, value="Date for this entry"  %><br />
-    <%= record.date_select :date %><br />
-
-    <%= record.label :comments %><br />
-    <%= record.text_field :comments, placeholder: 'optional' %><br />
-
-    <%= record.hidden_field :user_id, value: current_user.id %>
-
-  <% end %><br />
-  <%= f.submit "Submit Book", class: "btn btn-large btn-primary"%>
+    <%= f.submit "Submit Book", class: "btn btn-large btn-primary"%>
 <% end %>

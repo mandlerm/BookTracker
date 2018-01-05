@@ -1,5 +1,7 @@
 <h1>Edit <%= @book.title %></h1>
+<h3> You can make changes to the information about the book here.</h3>
 
-<%= render 'books/form' , book: @book  %>
+<h4>To add a new comment to this book, <%= link_to: click here: %></h4>
+<%= render 'books/edit_book' , book: @book  %>
 <br />
 <%= link_to "Delete Record", book_path(@book), method: :delete, class:"link-right" %>

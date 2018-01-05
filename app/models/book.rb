@@ -5,6 +5,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :category, presence: true
+  validates :rating, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 5 }
 
 
   def category_attributes=(category_attribute)
@@ -12,8 +13,8 @@ class Book < ApplicationRecord
       self.category = category if category.persisted?
   end
 
-  def user_books=(user_book_params)
-
+  def book_records_attributes=(user_book_params)
+    self.book_records.build(user_book_params["0"])
   end
 
 

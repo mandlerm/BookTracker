@@ -20,7 +20,11 @@ Rails.application.routes.draw do
    root :to => 'devise/sessions#new'
   end
 
-  authenticated do
-    root :to => 'users#show'
+  authenticated :user do
+    root :to => 'users#show', as: :authenticated_root
   end
+
+  get '/users' => 'users#show', as: :user_root
+
+
 end

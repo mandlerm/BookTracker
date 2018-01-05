@@ -4,7 +4,7 @@
     <h1>Your books:</h1>
     <h3>click on a title to see details about a particular book.</h3>
     <h3>click on a category to see a list of books in that category</h3>
-    <% if @books %>
+    <% if !@books.empty? %>
       <% @books.each do |book| %>
         <%= link_to book.title, user_book_path(current_user.id, book.id) %> | <%= book.author %> | <%= link_to book.category.name, category_path(book.category.id) %><br />
       <% end %><br />

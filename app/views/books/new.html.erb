@@ -1,4 +1,4 @@
 
 <h1>Add a book</h1>
 
-<%= render 'books/form' , book: @book  %>
+<%= render partial: 'books/form', locals: { book: @book, controller_name: 'books', action_name: 'create' }  %>

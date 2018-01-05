@@ -46,10 +46,11 @@ class BooksController < ApplicationController
       params.require(:book).permit(:title, :author, :rating, :category_attributes => [:name], :book_records_attributes =>[:date, :comments, :user_id])
     end
 
-    private
-
   def require_login
-    return head(:forbidden) unless session.include? :user_id
+    unless session.include? :user_id
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_user_session_path
+    end
   end
 end
 

@@ -10,6 +10,8 @@ class BookRecordsController < ApplicationController
   private
 
   def require_login
-    return head(:forbidden) unless session.include? :user_id
-  end
+    unless session.include? :user_id
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_user_session_path
+    end
 end

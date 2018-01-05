@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-    before_action :require_login
+    # before_action :require_login
+    # skip_before_action :require_login, only: [:new]
 
   def index
     @books = Books.all
@@ -17,7 +18,6 @@ class BooksController < ApplicationController
     if @book.save
         redirect_to book_path @book
     else
-      binding.pry
       render :new
     end
   end
@@ -37,8 +37,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-
-
   end
 
   private

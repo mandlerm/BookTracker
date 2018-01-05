@@ -1,8 +1,7 @@
 class BookRecordsController < ApplicationController
-  before_action :require_login
+  # before_action :require_login
 
   def new
-
     binding.pry
     @book_record = Book.last.book_records.build
   end
@@ -14,4 +13,5 @@ class BookRecordsController < ApplicationController
       flash[:error] = "You must be logged in to access this section"
       redirect_to new_user_session_path
     end
+  end
 end

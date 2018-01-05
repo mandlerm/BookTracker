@@ -14,10 +14,11 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-
     if @book.save
         redirect_to user_path(current_user.id)
     else
+      flash[:alert] = @book.errors.full_messages.to_sentence
+      binding.pry
       render :new
     end
   end

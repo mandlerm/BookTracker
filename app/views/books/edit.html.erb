@@ -2,6 +2,8 @@
 <h3> You can make changes to the information about the book here.</h3>
 
 <h4>To add a new comment to this book, <%= link_to "click here.", new_book_record_path(:book_id => @book.id) %></h4>
+
 <%= render partial: 'books/edit_book', locals: { book: @book, controller_name: 'books', action_name: 'update' }  %>
 <br />
+
 <%= link_to "Delete Record", user_book_path(current_user.id, @book),  method: :delete, data: { confirm: 'Are you sure?' } %>

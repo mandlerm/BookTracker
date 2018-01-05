@@ -17,7 +17,7 @@ before_action :authenticate_user!
     if @book.save
         redirect_to user_path(current_user.id)
     else
-      flash[:alert] = @book.errors.full_messages.to_sentenceexi
+      flash[:alert] = @book.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -35,7 +35,7 @@ before_action :authenticate_user!
     @book.update(book_params)
     if @book.valid?
       flash[:notice] = "Update was successful"
-      render user_book_path(current_user.id, @book)
+      redirect_to user_book_path(current_user.id, @book)
     else
       flash[:alert] = @book.errors.full_messages.to_sentence
       redirect_to edit_user_book_path(current_user.id,@book)

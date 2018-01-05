@@ -1,9 +1,10 @@
 ERRORS  
-registration -- will not go to show page
-log in  -- will not go to show page.
-redirect error.  infinite loop?
+DONE  registration -- will not go to show page
+DONE  log in  -- will not go to show page.
+DONE   redirect error.  infinite loop?
 
-
+Book partials: edit and form.  
+can I render part of a partial in another partial?
 
 Checklist
 
@@ -14,7 +15,7 @@ Checklist
 [ ] book record -- require comments when creating NEW record, but not when creating new book
 
 start with predefined categories
-how to handle datalist issue on edit
+FIXED ITSELF how to handle datalist issue on edit
 
 [ ]  create table view on user/show
 
@@ -25,5 +26,11 @@ how to handle datalist issue on edit
 [ ] conditional routing??  if I came from categories/show, return to category show
 
 [ ] if new book fails, why aren't error messages showing?
+  1. not title.  title error shows
+  2. enter title.  book saves.  title error still shows.  
+  3. category is not being required?
+  4. does category validation to in Book model or category model?
 
+
+BooksController  line 38.  Render did not work.  redirect did.
 [ ] if update is not valid, why aren't error messages showing?

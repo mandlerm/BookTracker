@@ -1,6 +1,9 @@
 class Category < ApplicationRecord
   has_many :books
 
+  validates :name, presence: true
+
+
   def book_attributes=(book_attributes)
 
   end

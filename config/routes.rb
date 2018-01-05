@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:new, :create, :show]
   resources :book_records, only: [:new, :create, :show]
   resources :books, only: [:show, :new, :create, :edit, :update, :destroy]
-  root to: 'users#index'
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 
 end

@@ -3,6 +3,7 @@ class BooksController < ApplicationController
     # skip_before_action :require_login, only: [:new]
 
   def index
+    binding.pry
     @books = Books.all
   end
 
@@ -16,7 +17,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-        redirect_to book_path @book
+        redirect_to user_path(current_user.id)
     else
       render :new
     end

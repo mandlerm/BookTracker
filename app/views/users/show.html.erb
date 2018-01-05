@@ -2,7 +2,7 @@
 <div class="book_view">
 
     <h1>Your books:</h1>
-
+<% binding.pry %>
     <% if @books %>
       <% @books.each do |book| %>
         <%= link_to book.title, book_path(book.id) %> | <%= book.author %> | <%= link_to book.category.name, category_path(book.category.id) %><br />

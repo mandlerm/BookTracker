@@ -2,8 +2,9 @@ class BooksController < ApplicationController
     # before_action :require_login
     # skip_before_action :require_login, only: [:new]
 before_action :authenticate_user!
+
   def index
-    @books = Books.all
+    @books = Book.all
   end
 
   def new

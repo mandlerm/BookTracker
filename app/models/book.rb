@@ -17,9 +17,9 @@ class Book < ApplicationRecord
     self.book_records.build(user_book_params["0"])
   end
 
-  def comments
+  def records
     self.book_records.map do |record|
-      record.comments
+        record
     end
   end
 end

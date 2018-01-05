@@ -1,8 +1,11 @@
 <h1><%= @book.title %> by <%= @book.author %></h1>
 
-  <% @book.comments.each do |comment| %>
-    <p> <%= comment if !comment.empty? %> </p>
+<!-- find a way to sort the records by date -->
+<div class="center">
+  <% @book.records.each do |record| %>
+    <p> <%= "#{record.date} - #{record.comments}" if !record.comments.empty? %> </p>
   <% end %>
+</div>
 
 
     <%= link_to "Edit Record", edit_book_path(@book),  class:"link-left"%><br />

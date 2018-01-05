@@ -4,4 +4,5 @@ class BookRecord < ApplicationRecord
 
   validates :comments, presence: true
 
+
 end

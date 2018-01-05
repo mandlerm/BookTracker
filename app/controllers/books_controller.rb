@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+    before_action :require_login
   def index
     @books = Books.all
   end

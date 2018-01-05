@@ -8,10 +8,10 @@
 </div>
 
 
-    <%= link_to "Edit Record", edit_book_path(@book),  class:"link-left"%><br />
+    <%= link_to "Edit Book", edit_book_path(@book),  class:"link-left"%><br />
     <%= link_to "Add comment to this book", new_book_record_path(:book_id => @book.id) %><br />
 
-    <%= link_to "Delete Record", book_path(@book), method: :delete, class:"link-right" %>
+    <%= link_to "Delete Book", book_path(@book), method: :delete, class:"link-right" %>
 
 
   <%= button_to "Add Book", new_book_path, method: :get, class:"btn btn-primary center" %>

@@ -27,6 +27,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+    binding.pry
     @book = Book.find_by(:id => params[:id])
   end
 

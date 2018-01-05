@@ -16,3 +16,7 @@ how to handle datalist issue on edit
 [ ] category show page. how to handle blank author or rating??
 
 [ ] conditional routing??  if I came from categories/show, return to category show
+
+[ ] if new book fails, why aren't error messages showing?
+
+[ ] if update is not valid, why aren't error messages showing?

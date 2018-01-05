@@ -17,5 +17,10 @@ class Book < ApplicationRecord
     self.book_records.build(user_book_params["0"])
   end
 
-
+  def comments
+    self.book_records.map do |record|
+      binding.pry
+      record.comments
+    end
+  end
 end

@@ -19,7 +19,6 @@ class Book < ApplicationRecord
 
   def comments
     self.book_records.map do |record|
-      binding.pry
       record.comments
     end
   end

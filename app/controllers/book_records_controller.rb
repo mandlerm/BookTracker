@@ -3,7 +3,7 @@ class BookRecordsController < ApplicationController
 
   def new
     binding.pry
-    @book_record = Book.last.book_records.build
+    @book_record = BookRecord.new(user_id: current_user.id, book_id: params[:book_id])
   end
 
   private

@@ -40,7 +40,7 @@ class BooksController < ApplicationController
   def destroy
     # redirect_back fallback_location: user_path(current_user.id)
     Book.find(params[:id]).destroy
-    flash[:success] = "Book deleted"
+    flash[:notice] = "Book deleted"
     redirect_to user_path(current_user)
   end
 
@@ -51,7 +51,7 @@ class BooksController < ApplicationController
 
   def require_login
     unless session.include? :user_id
-      flash[:error] = "You must be logged in to access this section"
+      flash[:alert] = "You must be logged in to access this section"
       redirect_to new_user_session_path
     end
   end

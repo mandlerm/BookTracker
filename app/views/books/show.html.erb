@@ -6,7 +6,7 @@
 
 
     <%= link_to "Edit Record", edit_book_path(@book),  class:"link-left"%><br />
-    <%= link_to "click here.", edit_book_path(@book) %><br />
+    <%= link_to "Add comment to this book", new_book_record_path @book %><br />
 
     <%= link_to "Delete Record", book_path(@book), method: :delete, class:"link-right" %>
 

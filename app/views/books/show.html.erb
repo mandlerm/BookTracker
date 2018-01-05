@@ -8,11 +8,11 @@
 </div>
 
 
-    <%= link_to "Edit Book", edit_book_path(@book),  class:"link-left"%><br />
+    <%= link_to "Edit Book", edit_user_book_path(current_user.id, @book),  class:"link-left"%><br />
     <%= link_to "Add comment to this book", new_book_record_path(:book_id => @book.id) %><br />
 
-    <%= link_to "Delete Record", book_path(@book),  method: :delete, data: { confirm: 'Are you sure?' } %>
-    
+    <%= link_to "Delete Record", user_book_path(current_user.id, @book),  method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
-  <%= button_to "Add Book", new_book_path, method: :get, class:"btn btn-primary center" %>
+
+  <%= button_to "Add Book", new_user_book_path, method: :get, class:"btn btn-primary center" %>

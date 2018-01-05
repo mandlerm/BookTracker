@@ -2,5 +2,5 @@
 
 Title    --       Author     --     Rating<br /><br />
 <% @category.books.each do |book| %>
-  <%=  "#{book.title} | #{book.author} | #{book.rating}     " %><%= button_to "View this book", book_path(book), method: :get, form: {style: 'display:inline-block;'}, class:"btn btn-info btn-xs" %><br /><br />
+  <%=  "#{book.title} | #{book.author} | #{book.rating}     " %><%= button_to "View this book", user_book_path(current_user.id, book), method: :get, form: {style: 'display:inline-block;'}, class:"btn btn-info btn-xs" %><br /><br />
 <% end %>

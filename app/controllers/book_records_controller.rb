@@ -8,9 +8,9 @@ class BookRecordsController < ApplicationController
   def create
     record = BookRecord.new(book_record_params)
     if record.save
-      redirect_to book_path(book_record_params[:book_id])
+      redirect_to user_book_path(current_user.id, book_record_params[:book_id])
     else
-      redirect_to book_path(book_record_params[:book_id])
+      redirect_to user_book_path(current_user.id, book_record_params[:book_id])
     end
   end
 

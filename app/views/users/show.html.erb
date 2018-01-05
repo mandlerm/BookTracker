@@ -6,7 +6,7 @@
     <h3>click on a category to see a list of books in that category</h3>
     <% if @books %>
       <% @books.each do |book| %>
-        <%= link_to book.title, book_path(book.id) %> | <%= book.author %> | <%= link_to book.category.name, category_path(book.category.id) %><br />
+        <%= link_to book.title, user_book_path(current_user.id, book.id) %> | <%= book.author %> | <%= link_to book.category.name, category_path(book.category.id) %><br />
       <% end %><br />
     <% else %>
       <h2>You do not have any books yet</h2>

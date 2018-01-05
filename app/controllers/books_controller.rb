@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
     # before_action :require_login
     # skip_before_action :require_login, only: [:new]
-before_filter :authenticate_user!
+before_action :authenticate_user!
   def index
     @books = Books.all
   end
@@ -35,10 +35,10 @@ before_filter :authenticate_user!
     @book.update(book_params)
     if @book.valid?
       flash[:notice] = "Update was successful"
-      render book_path(@book)
+      render user_book_path(current_user.id, @book)
     else
       flash[:alert] = @book.errors.full_messages.to_sentence
-      redirect_to edit_book_path @book
+      redirect_to edit_user_book_path(current_user.id,@book)
     end
   end
 

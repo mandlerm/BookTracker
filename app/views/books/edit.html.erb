@@ -4,5 +4,4 @@
 <h4>To add a new comment to this book, <%= link_to "click here.", new_book_record_path(:book_id => @book.id) %></h4>
 <%= render 'books/edit_book' , book: @book  %>
 <br />
-<%= link_to "Delete Record", book_path(@book),  method: :delete, data: { confirm: 'Are you sure?' } %>
-<%#= link_to "Delete Record", book_path(@book), method: :delete, class:"link-right" %>
+<%= link_to "Delete Record", user_book_path(current_user.id, @book),  method: :delete, data: { confirm: 'Are you sure?' } %>

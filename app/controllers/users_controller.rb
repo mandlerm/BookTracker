@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     # sort books.
     @books = Book.all

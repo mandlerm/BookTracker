@@ -1,3 +1,10 @@
+ERRORS  
+registration -- will not go to show page
+log in  -- will not go to show page.
+redirect error.  infinite loop?
+
+
+
 Checklist
 
 [ x]  only logged in users can view certain pages

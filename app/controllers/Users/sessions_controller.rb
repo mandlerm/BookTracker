@@ -1,6 +1,17 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  
 
+
+  # def create
+  #   binding.pry
+  #   flash[:notice] = 'You have successfully signed in'
+  # end
+
+  # def destroy
+  #   binding.pry
+  #   redirect_to :root
+  # end
   # GET /resource/sign_in
   # def new
   #   super

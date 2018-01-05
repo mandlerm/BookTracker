@@ -17,8 +17,7 @@ class BooksController < ApplicationController
     if @book.save
         redirect_to user_path(current_user.id)
     else
-      flash[:alert] = @book.errors.full_messages.to_sentence
-      binding.pry
+      flash[:alert] = @book.errors.full_messages.to_sentenceexi
       render :new
     end
   end
@@ -35,7 +34,13 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
-    redirect_to book_path @book
+    if @book.valid?
+      flash[:notice] = "Update was successful"
+      render book_path(@book)
+    else
+      flash[:alert] = @book.errors.full_messages.to_sentence
+      redirect_to edit_book_path @book
+    end
   end
 
   def destroy

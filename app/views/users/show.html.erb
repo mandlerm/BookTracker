@@ -2,7 +2,8 @@
 <div class="book_view">
 
     <h1>Your books:</h1>
-<% binding.pry %>
+    <h3>click on a title to see details about a particular book.</h3>
+    <h3>click on a category to see a list of books in that category</h3>
     <% if @books %>
       <% @books.each do |book| %>
         <%= link_to book.title, book_path(book.id) %> | <%= book.author %> | <%= link_to book.category.name, category_path(book.category.id) %><br />

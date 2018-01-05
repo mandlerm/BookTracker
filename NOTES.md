@@ -8,3 +8,11 @@ Checklist
 
 start with predefined categories
 how to handle datalist issue on edit
+
+[ ]  create table view on user/show
+
+[ ] category show page. table view
+
+[ ] category show page. how to handle blank author or rating??
+
+[ ] conditional routing??  if I came from categories/show, return to category show

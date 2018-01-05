@@ -3,7 +3,6 @@ class BooksController < ApplicationController
     # skip_before_action :require_login, only: [:new]
 
   def index
-    binding.pry
     @books = Books.all
   end
 
@@ -39,8 +38,8 @@ class BooksController < ApplicationController
   end
 
   def destroy
-
-    redirect_to user_path(current_user)
+    redirect_back fallback_location: user_path(current_user.id)
+    # redirect_to user_path(current_user)
   end
 
   private

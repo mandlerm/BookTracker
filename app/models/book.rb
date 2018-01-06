@@ -23,6 +23,10 @@ class Book < ApplicationRecord
     end
   end
 
+  def self.favoritese
+    binding.pry
+
+  end
   # def self.most_comments
   #   binding.pry
   #

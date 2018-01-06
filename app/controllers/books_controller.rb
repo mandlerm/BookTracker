@@ -12,6 +12,9 @@ class BooksController < ApplicationController
       @most_comment = Book.most_comments
   end
 
+  def favorites
+    @favorites = Book.favorites
+  end
 
   def new
     @book = Book.new

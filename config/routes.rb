@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   get '/users' => 'users#show', as: :user_root
   get '/users/:id/records' => 'users#records', as: :user_records
   get '/books/most_comments' => 'books#most_comments', as: :most_comments
+  get '/books/favorites' => 'books#favorites', as: :favorites
 end

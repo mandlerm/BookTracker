@@ -9,7 +9,8 @@ class UsersController < ApplicationController
   private
 
   def get_users_books
-    @books = current_user.books.all
+    binding.pry
+    @books = current_user.books.all.distinct
   end
 
 end

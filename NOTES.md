@@ -11,7 +11,7 @@ start with predefined categories
   4. does category validation to in Book model or category model?
 [ ] books/show sort records before displaying
 [ ] book record -- require comments when creating NEW record, but not when creating new book
-
+[ ] creating a comment seems to save a new book instance?? OR view issue.  user view pages are showing a line each time there is a comment
 
 BooksController  line 38.  Render did not work.  redirect did.
 flash[:alert] vs. notice on render line. difference?  books_controller, line 47

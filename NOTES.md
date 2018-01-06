@@ -1,9 +1,16 @@
+SCOPE METHOD HELP!
+
+Controller logic. 
+
+
+
 ERRORS  
 DONE  registration -- will not go to show page
 DONE  log in  -- will not go to show page.
 DONE   redirect error.  infinite loop?
 
 category controller == should that be a model method?  and if so, how do I access it?
+
 Checklist
 
 [ x]  only logged in users can view certain pages

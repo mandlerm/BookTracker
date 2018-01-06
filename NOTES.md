@@ -1,10 +1,8 @@
 SCOPE METHOD HELP!
 
-books_controller...if i have no logic in an action, do I need the action?
 Controller logic.
 start with predefined categories
-When I sign in with OmniAuth, the url looks funny:  http://localhost:3000/users#_=_
-category controller == should that be a model method?  and if so, how do I access it?
+??category controller == should that be a model method?  and if so, how do I access it???
 [ ]date validation for book_record. must not be in future  -- book_record controller.
 [ ] if new book fails, why aren't error messages showing?
   1. not title.  title error shows

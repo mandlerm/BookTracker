@@ -23,5 +23,7 @@ class Book < ApplicationRecord
     end
   end
 
-
+  def self.most_comments
+    # return book that has the most comments
+  end
 end

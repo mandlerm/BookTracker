@@ -21,6 +21,7 @@ class User < ApplicationRecord
   def get_records
       current_user.book_records.order('date DESC')
   end
+
 end
 
 

@@ -5,6 +5,7 @@
   <% @book.records.each do |record| %>
     <p> <%= "#{record.date} - #{record.comments}" if !record.comments.empty? %> </p>
   <% end %>
+
 </div>
 
 

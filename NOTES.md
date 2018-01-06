@@ -19,18 +19,18 @@ BooksController  line 38.  Render did not work.  redirect did.
 flash[:alert] vs. notice on render line. difference?  books_controller, line 47
 Messages - flash vs. 'built in'?
 
-
+explain SCOPE
 books_controller new  
   better to build in controller or in form?
 
-  
+
 ERRORS  
 DONE  registration -- will not go to show page
 DONE  log in  -- will not go to show page.
 DONE   redirect error.  infinite loop?
 
 
-
+[ ] add solid seed data.  create a user and fill out book collection
 Checklist
 
 [ x]  only logged in users can view certain pages
@@ -51,3 +51,7 @@ FIXED ITSELF how to handle datalist issue on edit
 
 
 FIXED - Category controller.  show action.  ONLY books association to current user ***
+
+
+FEATURE TO ADD:
+Display favorite books

@@ -1,5 +1,6 @@
 SCOPE METHOD HELP!
 
+books_controller...if i have no logic in an action, do I need the action?
 Controller logic.
 start with predefined categories
 When I sign in with OmniAuth, the url looks funny:  http://localhost:3000/users#_=_
@@ -18,6 +19,11 @@ BooksController  line 38.  Render did not work.  redirect did.
 flash[:alert] vs. notice on render line. difference?  books_controller, line 47
 Messages - flash vs. 'built in'?
 
+
+books_controller new  
+  better to build in controller or in form?
+
+  
 ERRORS  
 DONE  registration -- will not go to show page
 DONE  log in  -- will not go to show page.

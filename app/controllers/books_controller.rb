@@ -24,11 +24,11 @@ class BooksController < ApplicationController
     end
   end
 
-  def show
-  end
-
-  def edit
-  end
+  # def show
+  # end
+  #
+  # def edit
+  # end
 
   def update
     @book.update(book_params)
@@ -36,7 +36,6 @@ class BooksController < ApplicationController
       flash[:notice] = "Update was successful"
       redirect_to user_book_path(current_user.id, @book), notice: "You must be logged in to access this section"
     else
-
       flash[:alert] = @book.errors.full_messages.to_sentence
       redirect_to edit_user_book_path(current_user.id,@book)
     end

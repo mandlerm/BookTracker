@@ -1,0 +1,13 @@
+<%= form_for book_record do |f| %>
+
+  <%= f.label :date, value="Date for this entry"  %><br />
+  <%= f.date_select :date %><br />
+
+  <%= f.label :comments %><br />
+  <%= f.text_field :comments, placeholder: 'optional' %><br />
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :book_id, value: book_record.book_id %>
+
+<%= f.submit "Submit this entry", class: "btn btn-large btn-primary"%>
+<% end %>

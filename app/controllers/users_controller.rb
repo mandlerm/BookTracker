@@ -11,4 +11,9 @@ class UsersController < ApplicationController
     @books = current_user.books.all
   end
 
+  def records
+    binding.pry
+    self.records
+  end
+
 end

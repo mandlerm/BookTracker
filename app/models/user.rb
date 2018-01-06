@@ -17,4 +17,8 @@ class User < ApplicationRecord
     user.password = Devise.friendly_token[0,20]
     end
   end
+
+  def self.get_records
+      current_user.book_records.order('date DESC')
+  end
 end

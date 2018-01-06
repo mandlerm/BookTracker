@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   end
 
   get '/users' => 'users#show', as: :user_root
-
+  get '/users/:id/records' => 'users#records', as: :user_records
 
 end

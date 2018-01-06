@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def records
-    binding.pry
     self.records
   end
 

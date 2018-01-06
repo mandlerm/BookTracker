@@ -1,8 +1,8 @@
 SCOPE METHOD HELP!
 
-Controller logic. 
-
-
+Controller logic.
+start with predefined categories
+When I sign in with OmniAuth, the url looks funny:  http://localhost:3000/users#_=_
 
 ERRORS  
 DONE  registration -- will not go to show page
@@ -19,7 +19,7 @@ Checklist
 [ ] books/show sort records before displaying
 [ ] book record -- require comments when creating NEW record, but not when creating new book
 
-start with predefined categories
+
 FIXED ITSELF how to handle datalist issue on edit
 
 [ ]  create table view on user/show
@@ -38,7 +38,7 @@ FIXED ITSELF how to handle datalist issue on edit
 
 FIXED - Category controller.  show action.  ONLY books association to current user ***
 
-When I sign in with OmniAuth, the url looks funny:  http://localhost:3000/users#_=_
+
 
 
 BooksController  line 38.  Render did not work.  redirect did.

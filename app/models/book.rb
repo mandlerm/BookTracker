@@ -17,22 +17,25 @@ class Book < ApplicationRecord
     self.book_records.build(user_book_params["0"])
   end
 
-  def records
+  def bookrecords
     self.book_records.map do |record|
         record
     end
   end
 
-  def self.most_comments
-    binding.pry
-
-    join book_records
-      group by book
-      order by comments
-      desc order
-      limit 1
-
-    # @book =
-    # return book that has the most comments
-  end
+  # def self.most_comments
+  #   binding.pry
+  #
+  #   join book_records
+  #     group by book
+  #     order by comments
+  #     desc order
+  #     limit 1
+  #
+  #     book_records  which book_id shows up the most
+  #
+  #     group(book_record.book_id).order(DESC).first
+  #   # @book =
+  #   # return book that has the most comments
+  # end
 end

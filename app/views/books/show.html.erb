@@ -2,7 +2,7 @@
 
 <!-- find a way to sort the records by date -->
 <div class="center">
-  <% @book.records.each do |record| %>
+  <% @book.bookrecords.each do |record| %>
     <p> <%= "#{record.date} - #{record.comments}" if !record.comments.empty? %> </p>
   <% end %>
 

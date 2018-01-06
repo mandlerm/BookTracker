@@ -18,8 +18,6 @@ class Book < ApplicationRecord
   end
 
   def records
-    self.book_records.map do |record|
-        record
-    end
+      current_user.book_records.order('date DESC')
   end
 end

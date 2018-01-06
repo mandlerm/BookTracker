@@ -9,10 +9,7 @@ class BooksController < ApplicationController
   end
 
   def most_comments
-      books/most_comments
-  
       @most_comment = Book.most_comments
-
   end
 
 

@@ -24,6 +24,15 @@ class Book < ApplicationRecord
   end
 
   def self.most_comments
+    binding.pry
+
+    join book_records
+      group by book
+      order by comments
+      desc order
+      limit 1
+
+    # @book =
     # return book that has the most comments
   end
 end

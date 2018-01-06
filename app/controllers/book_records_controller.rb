@@ -1,6 +1,6 @@
 class BookRecordsController < ApplicationController
   # before_action :require_login
-
+  # validate :date with :past_date
   def new
     @book_record = BookRecord.new(user_id: current_user.id, book_id: params[:book_id])
   end
@@ -26,4 +26,9 @@ class BookRecordsController < ApplicationController
   def book_record_params
     params.require(:book_record).permit(:user_id, :book_id, :date, :comments)
   end
+
+  #  def past_date
+  #    binding.pry
+  #    flash[:alert](:date, "Can't be in the future!") if date > Time.now
+  # end
 end

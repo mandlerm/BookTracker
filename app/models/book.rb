@@ -23,7 +23,7 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.favoritese
+  def self.favorites
     binding.pry
 
   end

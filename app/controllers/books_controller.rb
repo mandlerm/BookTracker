@@ -2,7 +2,7 @@ class BooksController < ApplicationController
     # before_action :require_login
     # skip_before_action :require_login, only: [:new]
   before_action :authenticate_user!
-
+  before_action :find_book, only: %i[show edit update destroy]
 
   def index
     @books = Book.all
@@ -25,30 +25,28 @@ class BooksController < ApplicationController
   end
 
   def show
-     @book = Book.find_by(:id => params[:id])
   end
 
   def edit
-    @book = Book.find_by(:id => params[:id])
   end
 
   def update
-    @book = Book.find(params[:id])
     @book.update(book_params)
     if @book.valid?
       flash[:notice] = "Update was successful"
-      redirect_to user_book_path(current_user.id, @book)
+      redirect_to user_book_path(current_user.id, @book), notice: "You must be logged in to access this section"
     else
+
       flash[:alert] = @book.errors.full_messages.to_sentence
       redirect_to edit_user_book_path(current_user.id,@book)
     end
   end
 
   def destroy
-    # redirect_back fallback_location: user_path(current_user.id)
-    Book.find(params[:id]).destroy
-    flash[:notice] = "Book deleted"
-    redirect_to user_path(current_user)
+    title = @book.title
+    if @book.delete
+    redirect_to user_path(current_user), notice: "#{title} was successfully deleted"
+    end
   end
 
   private
@@ -56,28 +54,14 @@ class BooksController < ApplicationController
       params.require(:book).permit(:title, :author, :rating, :category_attributes => [:name], :book_records_attributes =>[:date, :comments, :user_id])
     end
 
-  def require_login
-    unless session.include? :user_id
-      flash[:alert] = "You must be logged in to access this section"
-      redirect_to new_user_session_path
-    end
+  # def require_login
+  #   unless session.include? :user_id
+  #     # flash[:alert] = "You must be logged in to access this section"
+  #     redirect_to new_user_session_path, alert: "You must be logged in to access this section"
+  #   end
+  # end
+
+  def find_book
+    @book = Book.find_by(:id => params[:id])
   end
 end
-
-
-# :book_record=> []
-
-      # "book"=>{
-      #   "category_attributes"=>{
-      #     "name"=>"Business"
-      #   },
-      # "title"=>"Side Hustle",
-      # "author"=>"Chris Guillebeau",
-      # "rating"=>"5"
-      # , "book_record"=>{
-      #     "date(1i)"=>"2018",
-      #     "date(2i)"=>"1",
-      #     "date(3i)"=>"4",
-      #     "comments"=>"reading again"
-      #     }
-      # },

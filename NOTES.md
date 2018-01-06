@@ -4,7 +4,7 @@ Controller logic.
 start with predefined categories
 When I sign in with OmniAuth, the url looks funny:  http://localhost:3000/users#_=_
 category controller == should that be a model method?  and if so, how do I access it?
-[ ]date validation for book_record. must not be in future  -- book_record controller. 
+[ ]date validation for book_record. must not be in future  -- book_record controller.
 [ ] if new book fails, why aren't error messages showing?
   1. not title.  title error shows
   2. enter title.  book saves.  title error still shows.  
@@ -14,6 +14,9 @@ category controller == should that be a model method?  and if so, how do I acces
 [ ] book record -- require comments when creating NEW record, but not when creating new book
 
 
+BooksController  line 38.  Render did not work.  redirect did.
+flash[:alert] vs. notice on render line. difference?  books_controller, line 47
+Messages - flash vs. 'built in'?
 
 ERRORS  
 DONE  registration -- will not go to show page
@@ -42,9 +45,3 @@ FIXED ITSELF how to handle datalist issue on edit
 
 
 FIXED - Category controller.  show action.  ONLY books association to current user ***
-
-
-
-
-BooksController  line 38.  Render did not work.  redirect did.
-[ ] if update is not valid, why aren't error messages showing?

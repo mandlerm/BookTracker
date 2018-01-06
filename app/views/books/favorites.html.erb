@@ -1,0 +1,18 @@
+<h1>Favorites List</h1>
+<h6>(Books you have rated a 5.)</h6>
+<br /><br />
+
+<% if @favorites.nil? %>
+  <p class='center'>
+    You do not have any books with a rating of 5!
+    Rate a book today.
+  </p>
+<% else %>
+<ul>
+  <% @favorites.each do |book| %>
+    <li>
+      <%= link_to book.title, user_book_path(current_user.id, book.id) %>
+    </li>
+  <% end %>
+</ul>
+<% end %>

@@ -24,9 +24,9 @@ class Book < ApplicationRecord
   end
 
   def self.favorites
-    binding.pry
-
+    where("rating = 5")
   end
+
   # def self.most_comments
   #   binding.pry
   #

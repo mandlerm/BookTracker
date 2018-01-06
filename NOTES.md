@@ -53,3 +53,4 @@ FIXED - Category controller.  show action.  ONLY books association to current us
 
 FEATURE TO ADD:
 Display favorite books
+self.most_comments  book.rb

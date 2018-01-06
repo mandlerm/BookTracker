@@ -1,0 +1,5 @@
+<h1><%= @book.name %> has the most comments with __ comments  </h1>
+
+  <% @book.comments.each do |comment| %>
+    <%= comment %>
+  <% end %>

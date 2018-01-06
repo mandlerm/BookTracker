@@ -3,6 +3,7 @@
     <h1>Your books:</h1>
 
     <% if !books.empty? %>
+    <%= button_to "See book with most comments",  most_comments_path, method: :get, class:"btn btn-info" %>
     <h5>click on a title to see details about a particular book.</h5>
     <h5>click on a category to see a list of books in that category</h5>
 

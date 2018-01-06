@@ -32,12 +32,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # def show
-  # end
-  #
-  # def edit
-  # end
-
   def update
     @book.update(book_params)
     if @book.valid?
@@ -61,14 +55,7 @@ class BooksController < ApplicationController
       params.require(:book).permit(:title, :author, :rating, :category_attributes => [:name], :book_records_attributes =>[:date, :comments, :user_id])
     end
 
-  # def require_login
-  #   unless session.include? :user_id
-  #     # flash[:alert] = "You must be logged in to access this section"
-  #     redirect_to new_user_session_path, alert: "You must be logged in to access this section"
-  #   end
-  # end
-
-  def find_book
-    @book = Book.find_by(:id => params[:id])
-  end
+    def find_book
+      @book = Book.find_by(:id => params[:id])
+    end
 end

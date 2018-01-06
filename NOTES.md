@@ -10,17 +10,12 @@ start with predefined categories
   3. category is not being required?
   4. does category validation to in Book model or category model?
 [ ] books/show sort records before displaying
-[ ] book record -- require comments when creating NEW record, but not when creating new book
+[ fixed] book record -- require comments when creating NEW record, but not when creating new book
 [ ] create new comment.  after a fai
 
 BooksController  line 38.  Render did not work.  redirect did.
 flash[:alert] vs. notice on render line. difference?  books_controller, line 47
 Messages - flash vs. 'built in'?
-
-explain SCOPE
-books_controller new  
-  better to build in controller or in form?
-
 
 ERRORS  
 DONE  registration -- will not go to show page

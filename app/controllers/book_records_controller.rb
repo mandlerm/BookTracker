@@ -1,5 +1,5 @@
 class BookRecordsController < ApplicationController
-  # before_action :require_login
+   before_action :require_login
   # validate :date with :past_date
   def new
     @book_record = BookRecord.new(user_id: current_user.id, book_id: params[:book_id])

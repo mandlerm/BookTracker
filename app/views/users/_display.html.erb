@@ -24,7 +24,7 @@
     <% end %><br />
 
   </table>
-    <%= button_to "Show your full book log", user_records_path(current_user), method: :get, class:"btn btn-primary center" %>
+    <%#= button_to "Show your full book log", user_records_path(current_user), method: :get, class:"btn btn-primary center" %>
     <% else %>
       <h2>You do not have any books yet</h2>
       <%= button_to "Add Book", new_user_book_path(current_user), method: :get, class:"btn btn-primary center" %><br />

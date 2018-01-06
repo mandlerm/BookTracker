@@ -4,7 +4,7 @@ Controller logic.
 start with predefined categories
 When I sign in with OmniAuth, the url looks funny:  http://localhost:3000/users#_=_
 category controller == should that be a model method?  and if so, how do I access it?
-
+[ ]date validation for book_record. must not be in future  -- book_record controller. 
 [ ] if new book fails, why aren't error messages showing?
   1. not title.  title error shows
   2. enter title.  book saves.  title error still shows.  
@@ -26,7 +26,7 @@ Checklist
 
 [ x]  only logged in users can view certain pages
 [ ] new book form -- on screen validation for integer value
-[ ]date validation for book_record. must not be in future
+
 
 
 

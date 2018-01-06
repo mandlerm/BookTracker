@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
     # before_action :require_login
     # skip_before_action :require_login, only: [:new]
-before_action :authenticate_user!
+  before_action :authenticate_user!
+  # validate :date with :past_date
 
   def index
     @books = Book.all
@@ -61,6 +62,11 @@ before_action :authenticate_user!
       redirect_to new_user_session_path
     end
   end
+
+ #  def past_date
+ #    binding.pry
+ #    flash[:alert](:date, "Can't be in the future!") if date > Time.now
+ # end
 end
 
 

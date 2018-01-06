@@ -31,7 +31,7 @@ FIXED ITSELF how to handle datalist issue on edit
   3. category is not being required?
   4. does category validation to in Book model or category model?
 
-Category controller.  show action.  ONLY books association to current user ***
+FIXED - Category controller.  show action.  ONLY books association to current user ***
 
 When I sign in with OmniAuth, the url looks funny:  http://localhost:3000/users#_=_
 

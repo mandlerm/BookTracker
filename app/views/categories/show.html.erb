@@ -1,8 +1,11 @@
-<h1><%= @category.name %> </h1>
+<h1><%= @category.first.category.name %>  </h1>
+
 
 Title    --       Author     --     Rating<br /><br />
 <% @category.each do |book| %>
   <%=  "#{book.title} | #{book.author} | #{book.rating}     " %>
   <%= button_to "View this book", user_book_path(current_user.id, book), method: :get, form: {style: 'display:inline-block;'}, class:"btn btn-info btn-xs" %>
   <%= button_to "Delete this book", user_book_path(current_user.id, book), method: :delete, data: { confirm: 'Are you sure?' } , form: {style: 'display:inline-block;'}, class:"btn btn-info btn-xs" %><br /><br />
-<% end %>
+<% end %><br />
+
+<%= link_to 'Return to main page', users_path%><br />

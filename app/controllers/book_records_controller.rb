@@ -1,5 +1,6 @@
 class BookRecordsController < ApplicationController
-   before_action :require_login
+   # before_action :require_login
+   before_action :authenticate_user!
   # validate :date with :past_date
   def new
     @book_record = BookRecord.new(user_id: current_user.id, book_id: params[:book_id])
@@ -17,12 +18,12 @@ class BookRecordsController < ApplicationController
 
   private
 
-  def require_login
-    unless session.include? :user_id
-      flash[:alert] = "You must be logged in to access this section"
-      redirect_to new_user_session_path
-    end
-  end
+  # def require_login
+  #   unless session.include? :user_id
+  #     flash[:alert] = "You must be logged in to access this section"
+  #     redirect_to new_user_session_path
+  #   end
+  # end
 
   def book_record_params
     params.require(:book_record).permit(:user_id, :book_id, :date, :comments)

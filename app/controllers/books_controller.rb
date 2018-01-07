@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   # end
 
   def favorites
-    @favorites = Book.favorites
+    @favorites = Book.favorites.distinct
   end
 
   def new

@@ -35,8 +35,7 @@ class BooksController < ApplicationController
   def update
     @book.update(book_params)
     if @book.valid?
-      flash[:notice] = "Update was successful"
-      redirect_to user_book_path(current_user.id, @book), notice: "You must be logged in to access this section"
+      redirect_to user_book_path(current_user.id, @book), notice: "Update was successful"
     else
       flash[:alert] = @book.errors.full_messages.to_sentence
       redirect_to edit_user_book_path(current_user.id,@book)

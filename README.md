@@ -1,10 +1,9 @@
-This app will allow you to keep a book list, tracking books on your 'to read' list as well as books already read.
+This app will help you keep track of your books.  You can record a book, author, categorize the book and rate it.  You also have the ability to add a comment about the book at any time, allowing you to make notes to yourself for future reference.
 
 Usage
-HEROKU:
+HEROKU: coming soon
 
-
-Installation
+Installation:
 git clone https://github.com/mandlerm/BookTracker.git
 cd BookTracker
 bundle install

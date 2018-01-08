@@ -8,10 +8,6 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
-  # def most_comments
-  #     @most_comment = Book.most_comments
-  # end
-
   def favorites
     @favorites = Book.favorites.distinct
   end
@@ -25,10 +21,11 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-        redirect_to user_path(current_user.id)
+    redirect_to user_path(current_user.id)
     else
-      flash[:alert] = @book.errors.full_messages.to_sentence
+      flash.now[:alert] = @book.errors.full_messages.to_sentence
       render :new
+      # redirect_to new_user_book_path, alert: @book.errors.full_messages.to_sentence
     end
   end
 
@@ -37,8 +34,9 @@ class BooksController < ApplicationController
     if @book.valid?
       redirect_to user_book_path(current_user.id, @book), notice: "Update was successful"
     else
-      flash[:alert] = @book.errors.full_messages.to_sentence
-      redirect_to edit_user_book_path(current_user.id,@book)
+      flash.now[:alert] = @book.errors.full_messages.to_sentence
+      render :edit
+      # redirect_to edit_user_book_path(current_user.id,@book), alert: @book.errors.full_messages.to_sentence
     end
   end
 

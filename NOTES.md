@@ -1,15 +1,17 @@
-SCOPE METHOD HELP!
 
+Does Favorites meet the requirement?
+2 methods to create message -- same? flash[:alert] vs. on end of redirect
 DRY code?
 ??category controller == should that be a model method?  and if so, how do I access it???
 start with predefined categories
+clarify - redirect with path.  render with :route
 [ ]date validation for book_record. must not be in future  -- book_record controller.
-[ ] if new book fails, why aren't error messages showing?
-  1. not title.  title error shows
-  2. enter title.  book saves.  title error still shows.  
-[ ] books/show sort records before displaying
 
 
+Questions:
+flash[:alert] vs. notice on render line. difference?  books_controller, line 47
+Messages - flash vs. 'built in'?
+class method ...does it REQUIRE def self.   or can you just access the class without that?
 
 Issues Fixed
 [ fixed] book record -- require comments when creating NEW record, but not when creating new book
@@ -28,14 +30,7 @@ Nice to have features
 [ ] conditional routing??  if I came from categories/show, return to category show
 
 
-Questions:
-BooksController  line 38.  Render did not work.  redirect did.
-flash[:alert] vs. notice on render line. difference?  books_controller, line 47
-Messages - flash vs. 'built in'?
-
-
-
-
 FEATURE TO ADD:
 Sort books by name on display
 See all comments method: show all comments in date order, newest first
+[ ] books/show sort records before displaying

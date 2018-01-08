@@ -6,7 +6,7 @@ class Book < ApplicationRecord
   validates :title, presence: true
   validates :category, presence: true   #is this the right place for this?
   validates :rating, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 5 }, :allow_blank => true
-
+  scope :favorites, -> { where(rating: '5') }
 
   def category_attributes=(category_attribute)
       category = Category.find_or_create_by(category_attribute)
@@ -23,9 +23,9 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.favorites
-    where("rating = 5")
-  end
+  # def self.favorites
+  #   where("rating = 5")
+  # end
 
   def self.most_comments
     binding.pry

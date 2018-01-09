@@ -1,5 +1,6 @@
 
 Does Favorites meet the requirement?
+Use of helper methods?? 
 2 methods to create message -- same? flash[:alert] vs. on end of redirect
 DRY code?
 ??category controller == should that be a model method?  and if so, how do I access it???

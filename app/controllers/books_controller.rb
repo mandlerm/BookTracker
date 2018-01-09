@@ -1,6 +1,4 @@
 class BooksController < ApplicationController
-    # before_action :require_login
-    # skip_before_action :require_login, only: [:new]
   before_action :authenticate_user!
   before_action :find_book, only: %i[show edit update destroy]
 
@@ -25,7 +23,6 @@ class BooksController < ApplicationController
     else
       flash.now[:alert] = @book.errors.full_messages.to_sentence
       render :new
-      # redirect_to new_user_book_path, alert: @book.errors.full_messages.to_sentence
     end
   end
 
@@ -36,7 +33,6 @@ class BooksController < ApplicationController
     else
       flash.now[:alert] = @book.errors.full_messages.to_sentence
       render :edit
-      # redirect_to edit_user_book_path(current_user.id,@book), alert: @book.errors.full_messages.to_sentence
     end
   end
 

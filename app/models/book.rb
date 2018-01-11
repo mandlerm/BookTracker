@@ -8,6 +8,7 @@ class Book < ApplicationRecord
   validates :rating, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 5 }, :allow_blank => true
   scope :favorites, -> { where(rating: '5') }
 
+
   def category_attributes=(category_attribute)
       category = Category.find_or_create_by(category_attribute)
       self.category = category if category.persisted?
@@ -21,6 +22,10 @@ class Book < ApplicationRecord
     self.book_records.map do |record|
         record
     end
+  end
+
+  def order_records
+      self.book_records.sort_by &:date
   end
 
   # def self.favorites

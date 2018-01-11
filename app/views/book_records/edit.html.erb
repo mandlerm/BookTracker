@@ -1,0 +1,9 @@
+<h1>You may edit this entry below</h1>
+  <h4 class="center">To remove comment from your records, delete text and press submit</h4>
+<%= form_for @comment do |f| %>
+  <p>  Entry made on <%= @comment.date %>:  </p>
+  <%= f.label :comments %><br />
+  <%= f.text_field :comments %><br />
+<br />
+<%= f.submit "Edit this comment", class: "btn btn-large btn-primary"%>
+<% end %>

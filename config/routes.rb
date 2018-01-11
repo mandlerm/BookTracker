@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:new, :create, :show]
-  resources :book_records, only: [:new, :create, :show]
+  resources :book_records, only: [:new, :create, :show, :update]
   # resources :books, only: [:show, :new, :create, :edit, :update, :destroy]
   devise_scope :user do
     root to: "devise/sessions#new"
@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get '/users/:id/records' => 'users#records', as: :user_records
   get '/books/most_comments' => 'books#most_comments', as: :most_comments
   get '/books/favorites' => 'books#favorites', as: :favorites
+  get '/comment/:id/edit' => 'book_records#edit', as: :edit_book_comment
 end

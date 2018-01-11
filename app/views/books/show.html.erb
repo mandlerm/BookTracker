@@ -2,8 +2,10 @@
 
 <!-- find a way to sort the records by date -->
 <div class="center">
-  <% @book.bookrecords.each do |record| %>
-    <p> <%= "#{record.date} - #{record.comments}" if !record.comments.empty? %> </p>
+
+  <% @book.order_records.each do |record| %>
+    <p> <%= "#{record.date} - #{record.comments}" if !record.comments.empty? %>
+      <%= link_to "Edit comment", edit_book_comment_path(record) if !record.comments.empty?%>  </p>
   <% end %>
 </div>
 

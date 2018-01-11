@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   def favorites
     @favorites = Book.favorites.distinct
   end
-
+  
   def new
     @book = Book.new
     @book_record = @book.book_records.build

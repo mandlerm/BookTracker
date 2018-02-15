@@ -4,12 +4,16 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+    respond_to do |f|
+      f.html
+      f.json {render json: @books}
+    end
   end
 
   def favorites
     @favorites = Book.favorites.distinct
   end
-  
+
   def new
     @book = Book.new
     @book_record = @book.book_records.build

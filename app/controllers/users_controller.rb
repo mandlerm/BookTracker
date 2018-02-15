@@ -5,6 +5,19 @@ class UsersController < ApplicationController
     self.records
   end
 
+  def show
+    respond_to do |f|
+      f.html
+      f.json {render json: @books}
+    end
+  end
+
+  def index
+    respond_to do |f|
+      f.html
+      f.json {render json: @books}
+    end
+  end
 
   private
 

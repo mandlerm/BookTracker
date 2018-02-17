@@ -134,3 +134,13 @@ p {
   .display_full{
     width: 100%;
   }
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }
+
+  .table{
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }

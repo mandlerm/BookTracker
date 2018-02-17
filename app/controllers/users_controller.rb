@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def show
     respond_to do |f|
       f.html
-      f.json {render json: @books}
+      f.json {render json: current_user}
     end
   end
 

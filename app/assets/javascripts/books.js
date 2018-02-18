@@ -13,13 +13,28 @@ const bindIndexPage = () => {
     })
         .then(res => res.json())
         .then(data => {
+
+          //trying to get flattened array - only return 1 of each title
+
+          let uniqueBooks = []
+          uniqueBooks = data.books.map(function(book){
+
+              console.log(uniqueBooks.includes(book))
+
+            })
+            console.log(typeof(uniqueBooks))
+
+//           const uniqueBooks = data.books.map(book =>  book )
+//           .filter((value, index, self) => self.indexOf(value.title) === index)
+// console.log(uniqueBooks)
+
             $(".app-container").html('').append(`<h1>Your Books</h1><table><tbody class='book-list'><tr>
                     <th class="table"> Title </th>
                     <th class="table"> Author </th>
                     <th class="table"> Category </th>
                     </tbody></table>`)
 
-          data.books.forEach(book => {
+          uniqueBooks.forEach(book => {
             let newBook = new Book(book)
             let bookHtml = newBook.formatIndex()
             $(".book-list").append(bookHtml)

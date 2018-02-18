@@ -10,6 +10,14 @@ class BooksController < ApplicationController
     end
   end
 
+  def show
+    respond_to do |f|
+
+      f.html
+      f.json {render json: @book}
+    end
+  end
+
   def favorites
     @favorites = Book.favorites.distinct
   end

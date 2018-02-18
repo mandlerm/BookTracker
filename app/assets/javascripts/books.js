@@ -58,8 +58,28 @@ Book.prototype.formatIndex = function() {
           .then(data => {
             console.log(data)
             let bookHTML = `
-              <h1>${data.title}</h1><p>Author:${data.author}</p>
+              <h1>Title: ${data.title}</h1><p>Author: ${data.author}</p>
+              </br>Comments:</br>
             `
              $(".app-container").html('').append(bookHTML)
+            console.log(data.book_records)
+            data.book_records.forEach(comment => {
+              let newComment = new Comment(comment)
+              let commentHtml = newComment.formatIndex()
+              console.log(commentHtml)
+              $(".app-container").append(commentHtml)
+            })
           })
   })}
+
+  function Comment(comment) {
+    this.date = comment.date
+    this.comment = comment.comments
+  }
+
+  Comment.prototype.formatIndex = function() {
+    let commentHTML = `
+      <p>${this.date} - ${this.comment}</p>
+    `
+    return commentHTML
+  }

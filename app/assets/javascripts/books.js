@@ -48,16 +48,15 @@ Book.prototype.formatIndex = function() {
   const bindBookShowPage = () => {
     $('.bookShow').on('click', (e) => {
       e.preventDefault(e)
-      console.log('book show')
+      const url = e.currentTarget.attributes[1].value
+      console.log(url)
 
-      alert('show book')
-      // const url = e.currentTarget.attributes[1].value
-      //
-      // fetch(`${url}.json`, {
-      //   credentials: 'include'
-      // })
-      //     .then(res => res.json())
-      //     .then(data => {
+      fetch(`${url}.json`, {
+        credentials: 'include'
+      })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)})
       //         $(".app-container").html('').append(`<h1>Your Books</h1><table><tbody class='book-list'><tr>
       //                 <th class="table"> Title </th>
       //                 <th class="table"> Author </th>

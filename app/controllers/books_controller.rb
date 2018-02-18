@@ -12,7 +12,6 @@ class BooksController < ApplicationController
 
   def show
     respond_to do |f|
-
       f.html
       f.json {render json: @book}
     end

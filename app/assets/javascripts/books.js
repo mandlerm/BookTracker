@@ -15,18 +15,7 @@ const bindIndexPage = () => {
         .then(data => {
 
           //trying to get flattened array - only return 1 of each title
-
-          let uniqueBooks = []
-          uniqueBooks = data.books.map(function(book){
-
-              console.log(uniqueBooks.includes(book))
-
-            })
-            console.log(typeof(uniqueBooks))
-
-//           const uniqueBooks = data.books.map(book =>  book )
-//           .filter((value, index, self) => self.indexOf(value.title) === index)
-// console.log(uniqueBooks)
+          let uniqueBooks = UniqueBookList(data)
 
             $(".app-container").html('').append(`<h1>Your Books</h1><table><tbody class='book-list'><tr>
                     <th class="table"> Title </th>
@@ -41,6 +30,21 @@ const bindIndexPage = () => {
           })
       })
     })}
+
+function UniqueBookList(list) {
+  let uniqueBooks = []
+  let tempBookArray = []
+  let dupArray = []
+
+console.log(list)
+  list.books.forEach(function(item) {
+    if (!tempBookArray.includes(item.title)) {
+      tempBookArray.push(item.title)
+      uniqueBooks.push(item)
+    }
+  })
+  return uniqueBooks
+}
 
 function Book(book) {
   this.title = book.title

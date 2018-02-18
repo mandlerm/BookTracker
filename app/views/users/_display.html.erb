@@ -4,6 +4,7 @@
 
     <% if !books.empty? %>
     <%#= button_to "See book with most comments",  most_comments_path, method: :get, class:"btn btn-info" %>
+
     <%= button_to "See your favorites",  favorites_path, method: :get, class:"btn btn-info" %>
     <%= button_to "Add Book", new_user_book_path(current_user), method: :get, class:"btn btn-primary center" %><br />
     <h5>click on a title to see details about a particular book.</h5>
@@ -11,6 +12,18 @@
   <div class = 'book_view'>
 
     <table class= 'display book_view' align='center'>
+      <tr >
+        <th class='center'> Title </th>
+        <th class='center'> Author </th>
+        <th class='center'> Category </th>
+      </tr>
+      <% books.each do |book| %>
+        <tr>
+            <td><%= link_to book.title, user_book_path(current_user.id, book.id) %>   </td>
+            <td><%= book.author %>  </td>
+            <td><%= link_to book.category.name, category_path(book.category.id) %> </td>
+        </tr>
+        <% end %><br />
     </table>
       <%#= button_to "Show your full book log", user_records_path(current_user), method: :get, class:"btn btn-primary center" %>
       <% else %>

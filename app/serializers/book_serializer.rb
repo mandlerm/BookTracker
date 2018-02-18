@@ -2,8 +2,8 @@ class BookSerializer < ActiveModel::Serializer
   attributes :id, :title, :author, :category_name
   # , :title, :author, :rating, :category_id
   #
-  # has_many :book_records
-  # has_one :users, :through => :book_records
+  has_many :book_records
+  has_one :users, :through => :book_records
   def category_name
     object.category.name
   end

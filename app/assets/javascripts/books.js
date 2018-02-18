@@ -20,10 +20,30 @@ const bindIndexPage = () => {
                     </tbody></table>`)
 
           data.books.forEach(book => {
-            $(".book-list").append(`<tr><td><a class='bookShow' href='http://localhost:3000${url}/books/${book.id}'>${book.title}</a></td><td>${book.author}</td><td>${book.category_name}</td>`)
+            let newBook = new Book(book)
+            let bookHtml = newBook.formatIndex()
+            $(".book-list").append(bookHtml)
           })
       })
     })}
+
+function Book(book) {
+  this.title = book.title
+  this.author = book.author
+  this.category = book.category_name
+  this.id = book.id
+  console.log(this)
+}
+
+Book.prototype.formatIndex = function() {
+  let bookHTML = `<tr>
+    <td>${this.title}</td>
+    <td>${this.author}</td>
+    <td>${this.category}</td>
+  `
+  return bookHTML
+}
+
 
   const bindBookShowPage = () => {
     $('.bookShow').on('click', (e) => {

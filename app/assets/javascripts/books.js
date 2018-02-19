@@ -1,6 +1,7 @@
 $(document).ready(() => {
   bindIndexPage()
   bindBookShowPage()
+  bookCreate()
 })
 
 const bindIndexPage = () => {
@@ -102,3 +103,9 @@ Book.prototype.formatIndex = function() {
     `
     return commentHTML
   }
+
+  function bookCreate() {
+    $('#submit-book').on('click', (e) => {
+      e.preventDefault(e)
+      alert("I clicked this button")
+  })}

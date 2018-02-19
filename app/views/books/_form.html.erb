@@ -1,5 +1,5 @@
 
-<%= form_for book, url: {controller: controller_name, action: action_name } do |f|%>
+<%= form_for book, url: {controller: controller_name, action: action_name }, html: {id:'submit-book'} do |f|%>
 
   <%= f.fields_for :category do |category| %>
     <%= category.label :name, value: "Enter or select a category" %><br />

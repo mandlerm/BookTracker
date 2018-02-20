@@ -29,8 +29,14 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    binding.pry
     if @book.save
-    redirect_to user_path(current_user.id)
+      respond_to do |f|
+        f.html
+        # render something
+        f.json {render json: @book}
+      end
+    # redirect_to user_path(current_user.id)
     else
       flash.now[:alert] = @book.errors.full_messages.to_sentence
       render :new

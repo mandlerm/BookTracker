@@ -105,10 +105,13 @@ Book.prototype.formatIndex = function() {
   }
 
   function bookCreate() {
-    $('#submit-book').on('click', (e) => {
+    $('#submit-book').on('submit', function(e) {
       e.preventDefault(e)
-      debugger
-      //e.currentTarget contains form fields
-      //or $('#book_title')[0].value   grab id of each field. need index of [0]
-      alert("I clicked this button")
+
+      const url = e.target.action
+      const params = $(this).serializeArray()
+      $.post(url, params)
+      .then(res => { res.json()
+    debugger })
+
   })}

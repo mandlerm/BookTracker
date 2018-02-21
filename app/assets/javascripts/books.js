@@ -58,7 +58,7 @@ function Book(book) {
 
 Book.prototype.formatIndex = function() {
   let bookHTML = `<tr>
-    <a href="/users/:user_id/books/${this.id}"><td>${this.title}</td></a>
+    <td><a href="/users/:user_id/books/${this.id}">${this.title}</a></td>
     <td>${this.author}</td>
     <td>${this.category}</td>
     </tr>

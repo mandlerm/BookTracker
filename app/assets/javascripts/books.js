@@ -58,7 +58,7 @@ function Book(book) {
 
 Book.prototype.formatIndex = function() {
   let bookHTML = `<tr>
-    <td><a class="bookShow" href="/users/${this.user_id}/books/${this.id}">${this.title}</a></td>
+    <td><a class="bookShow2" href="/users/${this.user_id}/books/${this.id}">${this.title}</a></td>
     <td>${this.author}</td>
     <td>${this.category}</td>
     </tr>
@@ -68,7 +68,7 @@ Book.prototype.formatIndex = function() {
 
 
   const bindBookShowPage = () => {
-    $('.bookShow').on('click', (e) => {
+    $('.bookShow, .bookShow2').on('click', (e) => {
       e.preventDefault(e)
       history.pushState(null, null, "book/show")
       const url = e.currentTarget.attributes[1].value

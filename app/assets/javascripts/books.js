@@ -26,6 +26,7 @@ const bindIndexPage = () => {
                     </tbody></table>`)
 
           uniqueBooks.forEach(book => {
+            book.user_id = data.id
             let newBook = new Book(book)
             let bookHtml = newBook.formatIndex()
             $(".book-list").append(bookHtml)
@@ -38,7 +39,6 @@ function UniqueBookList(list) {
   let tempBookArray = []
   let dupArray = []
 
-console.log(list)
   list.books.forEach(function(item) {
     if (!tempBookArray.includes(item.title)) {
       tempBookArray.push(item.title)
@@ -53,12 +53,12 @@ function Book(book) {
   this.author = book.author
   this.category = book.category_name
   this.id = book.id
-  console.log(this)
+  this.user_id = book.user_id
 }
 
 Book.prototype.formatIndex = function() {
   let bookHTML = `<tr>
-    <td><a href="/users/:user_id/books/${this.id}">${this.title}</a></td>
+    <td><a class="bookShow" href="/users/${this.user_id}/books/${this.id}">${this.title}</a></td>
     <td>${this.author}</td>
     <td>${this.category}</td>
     </tr>
@@ -72,24 +72,23 @@ Book.prototype.formatIndex = function() {
       e.preventDefault(e)
       history.pushState(null, null, "book/show")
       const url = e.currentTarget.attributes[1].value
-      console.log(url)
+
 
       fetch(`${url}.json`, {
         credentials: 'include'
       })
           .then(res => res.json())
           .then(data => {
-            console.log(data)
             let bookHTML = `
               <h1>Title: ${data.title}</h1><p>Author: ${data.author}</p>
               </br>Comments:</br>
             `
              $(".app-container").html('').append(bookHTML)
-            console.log(data.book_records)
+
             data.book_records.forEach(comment => {
               let newComment = new Comment(comment)
               let commentHtml = newComment.formatIndex()
-              console.log(commentHtml)
+
               $(".app-container").append(commentHtml)
             })
           })

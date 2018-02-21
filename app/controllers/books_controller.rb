@@ -29,7 +29,6 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    binding.pry
     if @book.save
       respond_to do |f|
         f.html

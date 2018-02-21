@@ -1,12 +1,13 @@
 $(document).ready(() => {
   bindIndexPage()
   bindBookShowPage()
-  bookCreate()
+  bindBookCreate()
 })
 
 const bindIndexPage = () => {
   $('.allBooks').on('click', (e) => {
     e.preventDefault(e)
+    history.pushState(null, null, "books")
     const url = e.currentTarget.attributes[1].value
 
     fetch(`${url}.json`, {
@@ -57,9 +58,10 @@ function Book(book) {
 
 Book.prototype.formatIndex = function() {
   let bookHTML = `<tr>
-    <td>${this.title}</td>
+    <a href="/users/:user_id/books/${this.id}"><td>${this.title}</td></a>
     <td>${this.author}</td>
     <td>${this.category}</td>
+    </tr>
   `
   return bookHTML
 }
@@ -68,6 +70,7 @@ Book.prototype.formatIndex = function() {
   const bindBookShowPage = () => {
     $('.bookShow').on('click', (e) => {
       e.preventDefault(e)
+      history.pushState(null, null, "book/show")
       const url = e.currentTarget.attributes[1].value
       console.log(url)
 
@@ -104,14 +107,13 @@ Book.prototype.formatIndex = function() {
     return commentHTML
   }
 
-  function bookCreate() {
+  function bindBookCreate() {
     $('#submit-book').on('submit', function(e) {
       e.preventDefault(e)
-
+//date is not getting serialized properly.  category and book attributes not coming through
       const url = e.target.action
       const params = $(this).serializeArray()
-      $.post(url, params)
-      .then(res => { res.json()
-    debugger })
+      $.post(url, params).done(function(data) {
 
+      })
   })}

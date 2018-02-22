@@ -130,13 +130,15 @@ console.log('out')
       $.ajax( {
         type: "POST",
         url: url,
-        data: params,
+        data: data,
         success: function(book) {
           debugger
         },
-        error: function(e){
+        error: function(e) {
           debugger
-          // $(".app-container").html(e.responseText)
+          //don't like how this is working. how can i just add flash message
+          $(".errors").html(e.responseText)
+            debugger
         }
       })
 //       $.post(url, data, function(data) {

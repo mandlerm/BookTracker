@@ -36,7 +36,7 @@ class BooksController < ApplicationController
       end
     else
       flash.now[:alert] = @book.errors.full_messages.to_sentence
-      render :new, status: 301, errorMsg: @book.errors.full_messages.to_sentence
+      render :new, status: 300, errorMsg: @book.errors.full_messages.to_sentence
     end
   end
 

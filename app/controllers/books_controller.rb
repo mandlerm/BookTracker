@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       respond_to do |f|
-        f.html
+        # f.html
         f.json {render json: @book, status: 201}
       end
     else

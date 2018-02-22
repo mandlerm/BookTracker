@@ -134,13 +134,22 @@ console.log('out')
         url: url,
         data: data,
         success: function(book) {
-          debugger
+          const bookId = book.book_records["0"].book_id
+          const userId = book.book_records["0"].user_id
+          const bookHTML = `
+            <h1>Title: ${book.title}</h1><h3>Author: ${book.author}</h3>`
+          const deleteLink = `<p><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users/${userId}/books/${bookId}">Delete Record</a></p>`
+
+          const editLink = `<p><a href="/users/${userId}/books/${bookId}/edit">Edit Book</a></p>`
+           $(".app-container").html('').append(bookHTML)
+           $(".app-container").append(editLink)
+           $(".app-container").append(deleteLink)
+
         },
         error: function(e) {
-          debugger
           //don't like how this is working. how can i just add flash message
           $(".errors").html(e.responseText)
-            debugger
+
         }
       })
 //       $.post(url, data, function(data) {

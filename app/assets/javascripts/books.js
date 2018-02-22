@@ -100,11 +100,12 @@ console.log('out')
             const userId = data.book_records["0"].user_id
             const bookId = data.book_records["0"].book_id
 
-            const deleteLink = `<a href="/users/userId/books/bookId"/>`
-            const editLink = `<a href="/users/userId/books/bookId/edit"`
+            const deleteLink = `<p><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users/6/books/60">Delete Record</a></p>`
 
-            $(".app-container").append(deleteButton)
-            $(".app-container").append(editButton)
+            const editLink = `<p><a href="/users/${userId}/books/${bookId}/edit">Edit Book</a></p>`
+
+            $(".app-container").append(deleteLink)
+            $(".app-container").append(editLink)
           })
       })
     }
@@ -124,10 +125,22 @@ console.log('out')
   function bindBookCreate() {
     $('#submit-book').on('submit', function(e) {
       e.preventDefault(e)
-//date is not getting serialized properly.  category and book attributes not coming through
       const url = e.target.action
-      const params = $(this).serializeArray()
-      $.post(url, params).done(function(data) {
-
+      const data = $(this).serializeArray()
+      $.ajax( {
+        type: "POST",
+        url: url,
+        data: params,
+        success: function(book) {
+          debugger
+        },
+        error: function(e){
+          debugger
+          // $(".app-container").html(e.responseText)
+        }
       })
+//       $.post(url, data, function(data) {
+// debugger
+//         $(".app-container").append()
+//     })
   })}

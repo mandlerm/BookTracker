@@ -32,11 +32,11 @@ class BooksController < ApplicationController
     if @book.save
       respond_to do |f|
         f.html
-        f.json {render json: @book}
+        f.json {render json: @book, status: 201}
       end
     else
       flash.now[:alert] = @book.errors.full_messages.to_sentence
-      render :new
+      render :new, status: 301, errorMsg: @book.errors.full_messages.to_sentence
     end
   end
 

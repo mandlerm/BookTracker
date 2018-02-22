@@ -2,6 +2,7 @@ $(document).ready(() => {
   $('.bookShow').on('click')
   bindBookShowPage()
   bindBookCreate()
+  bindIndexPage()
 })
 
 const bindIndexPage = () => {
@@ -100,7 +101,7 @@ console.log('out')
             const userId = data.book_records["0"].user_id
             const bookId = data.book_records["0"].book_id
 
-            const deleteLink = `<p><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users/6/books/60">Delete Record</a></p>`
+            const deleteLink = `<p><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users/${userId}/books/${bookId}">Delete Record</a></p>`
 
             const editLink = `<p><a href="/users/${userId}/books/${bookId}/edit">Edit Book</a></p>`
 
@@ -122,6 +123,7 @@ console.log('out')
     return commentHTML
   }
 
+//issues here.
   function bindBookCreate() {
     $('#submit-book').on('submit', function(e) {
       e.preventDefault(e)

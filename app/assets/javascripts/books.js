@@ -1,13 +1,13 @@
 $(document).ready(() => {
-  bindIndexPage()
+  $('.bookShow').on('click')
   bindBookShowPage()
   bindBookCreate()
 })
 
 const bindIndexPage = () => {
   $('.allBooks').on('click', (e) => {
+    history.replaceState(null, null, "users")
     e.preventDefault(e)
-    history.pushState(null, null, "books")
     const url = e.currentTarget.attributes[1].value
 
     fetch(`${url}.json`, {
@@ -16,7 +16,6 @@ const bindIndexPage = () => {
         .then(res => res.json())
         .then(data => {
 
-          //trying to get flattened array - only return 1 of each title
           let uniqueBooks = UniqueBookList(data)
 
             $(".app-container").html('').append(`<h1>Your Books</h1><table><tbody class='book-list'><tr>
@@ -69,11 +68,17 @@ Book.prototype.formatIndex = function() {
 
 
   const bindBookShowPage = () => {
-    $('.bookShow').on('click', (e) => {
-      e.preventDefault(e)
-      history.pushState(null, null, "book/show")
-      const url = e.currentTarget.attributes[1].value
+    bookShowHandler()
+  }
 
+  function bookShowHandler() {
+    $('.bookShow').on('click', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+
+      history.replaceState(null, null, e.target)
+console.log('out')
+      const url = e.currentTarget.attributes[1].value
 
       fetch(`${url}.json`, {
         credentials: 'include'
@@ -92,8 +97,17 @@ Book.prototype.formatIndex = function() {
 
               $(".app-container").append(commentHtml)
             })
+            const userId = data.book_records["0"].user_id
+            const bookId = data.book_records["0"].book_id
+
+            const deleteLink = `<a href="/users/userId/books/bookId"/>`
+            const editLink = `<a href="/users/userId/books/bookId/edit"`
+
+            $(".app-container").append(deleteButton)
+            $(".app-container").append(editButton)
           })
-  })}
+      })
+    }
 
   function Comment(comment) {
     this.date = comment.date

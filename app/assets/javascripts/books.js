@@ -143,7 +143,7 @@ console.log('out')
           const editLink = `<p><a href="/users/${userId}/books/${bookId}/edit">Edit Book</a></p>`
            $(".app-container").html('').append(bookHTML)
            $(".app-container").append(editLink)
-           $(".app-container").append(deleteLink)
+           $(".app-container").html('').append(deleteLink)
 
         },
         error: function(e) {

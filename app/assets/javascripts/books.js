@@ -134,6 +134,7 @@ console.log('out')
         url: url,
         data: data,
         success: function(book) {
+          debugger
           const bookId = book.book_records["0"].book_id
           const userId = book.book_records["0"].user_id
           const bookHTML = `
@@ -143,7 +144,7 @@ console.log('out')
           const editLink = `<p><a href="/users/${userId}/books/${bookId}/edit">Edit Book</a></p>`
            $(".app-container").html('').append(bookHTML)
            $(".app-container").append(editLink)
-           $(".app-container").html('').append(deleteLink)
+           $(".app-container").append(deleteLink)
 
         },
         error: function(e) {

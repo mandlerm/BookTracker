@@ -30,10 +30,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     if @book.save
-      respond_to do |f|
-        # f.html
-        f.json {render json: @book, status: 201}
-      end
+        render json: @book, status: 201
     else
       flash.now[:alert] = @book.errors.full_messages.to_sentence
       render :new, status: 300, errorMsg: @book.errors.full_messages.to_sentence

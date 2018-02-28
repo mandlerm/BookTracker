@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $('.bookShow').on('click')
+    $('.bookShow').on('click')
   bindBookShowPage()
   bindBookCreate()
   bindIndexPage()
@@ -7,8 +7,9 @@ $(document).ready(() => {
 
 const bindIndexPage = () => {
   $('.allBooks').on('click', (e) => {
-    history.replaceState(null, null, "users")
+    history.replaceState(null, null, "/users")
     e.preventDefault(e)
+    
     const url = e.currentTarget.attributes[1].value
 
     fetch(`${url}.json`, {

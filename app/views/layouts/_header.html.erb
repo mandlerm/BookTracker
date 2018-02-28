@@ -8,7 +8,7 @@
             <%=link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
             <%=" | "%>
             <%= link_to "See Your Books", user_path(current_user.id), :class => 'allBooks' %>
-           <% else %> 
+           <% else %>
             <li><%= link_to "Log in", new_user_session_path, :class => 'navbar-link'%></li>
             <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></li>
           <% end %>
